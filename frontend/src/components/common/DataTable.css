@@ -1,0 +1,30 @@
+.table-container{
+width:100%;
+overflow-x:auto;
+}
+
+.data-table{
+width:100%;
+border-collapse:collapse;
+min-width:800px;
+color:#e5e7eb;
+}
+
+.data-table th{
+padding:10px;
+font-weight:700;
+text-transform:uppercase;
+background:#2563eb;
+color:white;
+}
+
+.data-table td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.data-table tbody tr:hover{
+background:rgba(59,130,246,0.35);
+color:black;
+}

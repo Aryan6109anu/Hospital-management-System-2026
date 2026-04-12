@@ -1,0 +1,387 @@
+/* =====================================================
+PREMIUM HOSPITAL ADMIN DASHBOARD UI
+Colorful | Clean | Professional | Darker Fonts
+===================================================== */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+background:#f1f5f9;
+font-family:"Inter","Segoe UI",sans-serif;
+/* Pehle se zyada dark text color */
+color: #0f172a; 
+line-height: 1.5;
+}
+
+/* ROOT */
+
+.doctor-profile-container{
+min-height:100vh;
+width:100%;
+padding:30px 40px;
+background:linear-gradient(135deg,#f8fafc,#eef2ff);
+}
+
+/* GRID */
+
+.admin-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+margin-top:25px;
+}
+
+@media(max-width:900px){
+.admin-grid{
+grid-template-columns:1fr;
+}
+}
+
+/* CARDS */
+
+.profile-card,
+.appointments-card{
+background:#ffffff;
+border-radius:14px;
+padding:22px;
+border:1px solid #cbd5e1; /* Thoda dark border */
+box-shadow:0 12px 30px rgba(0,0,0,.07);
+transition:.25s;
+}
+
+.profile-card:hover,
+.appointments-card:hover{
+transform:translateY(-3px);
+box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+/* PROFILE HEADER */
+
+.profile-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.profile-header h2{
+font-size:22px;
+font-weight:800;
+color: #0f172a; /* Solid Dark */
+}
+
+.profile-subtitle{
+font-size:13px;
+color: #1e293b; /* Dark Slate */
+font-weight:700;
+}
+
+/* STATUS */
+
+.status-badge{
+font-size:11px;
+padding:6px 10px;
+border-radius:6px;
+font-weight:800; /* Extra Bold */
+}
+
+.status-badge.success{
+background:#dcfce7;
+color:#166534; /* Darker Green for readability */
+}
+
+/* PROFILE BODY */
+
+.profile-body{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+/* PROFILE FIELD */
+
+.profile-field{
+background:linear-gradient(135deg,#eef2ff,#f0fdf4);
+padding:12px 14px;
+border-radius:10px;
+border:1px solid #cbd5e1;
+display:flex;
+flex-direction:column;
+}
+
+.profile-field label{
+font-size:11px;
+font-weight:800;
+color: #334155; /* Darker Label */
+text-transform:uppercase;
+}
+
+.profile-field span{
+font-size:14px;
+font-weight:700;
+margin-top:4px;
+color: #0f172a; /* Solid Dark */
+}
+
+/* ================= ACTION BUTTON BASE ================= */
+
+.action-btn {
+  width: 190px; 
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  font-size: 13px;
+  font-weight: 800; /* Dark Bold Font */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  filter: brightness(1.1);
+}
+
+/* ================= UNIQUE BUTTON COLORS ================= */
+
+.appointment-btn { background: linear-gradient(135deg, #4f46e5, #3b82f6); }
+.doctor-btn { background: linear-gradient(135deg, #059669, #10b981); }
+.patient-btn { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.pharmacyStaff-btn { background: linear-gradient(135deg, #e11d48, #fb7185); }
+.billingStaff-btn { background: linear-gradient(135deg, #7c2d12, #b45309); }
+.appointmentStaff-btn { background: linear-gradient(135deg, #0891b2, #22d3ee); }
+.labStaff-btn { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.location-btn { background: linear-gradient(135deg, #334155, #64748b); }
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+/* TABLE HEADER */
+
+.table-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.table-header h3{
+font-size:20px;
+font-weight:800;
+color: #0f172a;
+}
+
+/* SEARCH */
+
+.table-search{
+padding:10px 15px;
+border-radius:8px;
+border:1px solid #94a3b8; /* Darker border */
+background:#ffffff;
+font-size:13px;
+font-weight: 600;
+color: #0f172a;
+outline:none;
+}
+
+.table-search:focus{
+border-color:#4f46e5;
+box-shadow:0 0 0 2px rgba(99,102,241,.2);
+}
+
+/* TABLE */
+
+.appointments-table{
+width:100%;
+border-collapse:separate;
+border-spacing:0;
+font-size:13px;
+color: #1e293b;
+}
+
+.appointments-table th{
+background:linear-gradient(135deg,#312e81,#1e3a8a); /* Darker Header Gradient */
+color:white;
+font-weight:800;
+padding:14px 10px;
+text-transform:uppercase;
+font-size:11px;
+text-align:center;
+}
+
+.appointments-table td{
+padding:12px 8px;
+border-bottom:1px solid #e2e8f0;
+text-align:center;
+font-weight: 600; /* Darker/Thicker text for cells */
+color: #0f172a;
+}
+
+.appointments-table tbody tr:hover td{
+background:#f1f5f9;
+}
+
+/* VISITING BOX */
+
+.visiting-hour-box{
+background:#e0e7ff;
+color:#1e1b4b; /* Dark Indigo */
+padding:5px 10px;
+border-radius:6px;
+font-size:11px;
+font-weight:800;
+display:inline-block;
+border: 1px solid #c7d2fe;
+}
+
+/* ACTION BUTTONS */
+
+.table-action-btn{
+display:flex;
+gap:6px;
+justify-content:center;
+}
+
+.table-action-btn button{
+padding:6px 10px;
+border-radius:6px;
+font-size:11px;
+font-weight:800;
+border:none;
+cursor:pointer;
+color:white;
+}
+
+/* STATUS - Active/Inactive */
+
+.status-active{
+background:#dcfce7;
+color:#14532d; /* Darkest Green */
+padding:5px 10px;
+border-radius:6px;
+font-size:12px;
+font-weight:800;
+}
+
+.status-inactive{
+background:#fee2e2;
+color:#7f1d1d; /* Darkest Red */
+padding:5px 10px;
+border-radius:6px;
+font-size:12px;
+font-weight:800;
+}
+
+/* LOCATION */
+
+.location-display-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:15px;
+}
+
+.location-box{
+background:linear-gradient(135deg,#dbeafe,#bfdbfe);
+border-radius:12px;
+padding:18px;
+border:1px solid #94a3b8;
+}
+
+.location-box h4{
+margin-bottom:10px;
+font-size:16px;
+font-weight: 800;
+color: #0f172a;
+}
+
+.location-box p{
+font-size:14px;
+margin:6px 0;
+font-weight: 700;
+color: #1e293b;
+}
+
+/* MODAL */
+
+.modal-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+background:rgba(15,23,42,.8); /* Darker overlay */
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.appointment-card{
+width:100%;
+max-width:550px;
+background:white;
+border-radius:14px;
+padding:20px;
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+/* BUTTONS */
+
+.btn-primary{
+padding:10px 18px;
+border-radius:8px;
+border:none;
+font-weight:800;
+cursor:pointer;
+background:linear-gradient(135deg,#4f46e5,#2563eb);
+color:white;
+text-transform: uppercase;
+}
+
+/* CONSULTATION BUTTONS */
+.btn-consultation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 800; /* Dark Bold Font */
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-start-consult { background-color: #059669; color: white; }
+.btn-view-consult { background-color: #1d4ed8; color: white; }
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+  .location-display-grid{ grid-template-columns: 1fr; }
+  .table-header{ flex-direction:column; gap:10px; align-items:flex-start; }
+  .table-search{ width:100%; }
+  .appointments-table{ min-width:750px; }
+}

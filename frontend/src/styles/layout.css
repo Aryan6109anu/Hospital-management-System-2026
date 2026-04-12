@@ -1,0 +1,47 @@
+/* layout.css */
+.layout-hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Background Image & Overlay */
+.wellspring-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,60,45,0.05)),
+    url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  animation: slowZoom 25s ease-in-out infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wellspring-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255,255,255,.92), rgba(255,255,255,.7));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background: rgba(30,111,92,0.9);
+  padding: 10px 0;
+}
+
+/* PAGE CONTENT WRAPPER */
+.layout-content {
+  position: relative; /* IMPORTANT */
+  z-index: 2;         /* IMPORTANT */
+  padding-top: 80px;  /* space for navbar */
+}

@@ -1,0 +1,94 @@
+/* ================= CONTAINER ================= */
+.login-container.register {
+  width: 600px;
+  max-width: 90%;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 22px 24px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ================= TITLE ================= */
+.login-container.register h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+/* ================= GRID LAYOUT ================= */
+.login-container.register {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+/* Full width elements */
+.login-container.register h2,
+.login-container.register button,
+.login-container.register .register-link {
+  grid-column: span 2;
+}
+
+/* ================= INPUTS ================= */
+.login-container.register input,
+.login-container.register select {
+  padding: 7px 9px;
+  border-radius: 6px;
+  border: 1px solid #4c4c4d;
+  font-size: 14px;
+  outline: none;
+}
+
+.login-container.register input:focus,
+.login-container.register select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb33;
+}
+
+/* ================= BUTTON ================= */
+.login-container.register button {
+  margin-top: 10px;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-container.register button:hover {
+  background: #1d4ed8;
+}
+
+/* ================= LINK ================= */
+.register-link {
+  text-align: center;
+  font-size: 14px;
+  color: #475569;
+}
+
+.register-link span {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-link span:hover {
+  text-decoration: underline;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .login-container.register {
+    grid-template-columns: 1fr;
+  }
+
+  .login-container.register h2,
+  .login-container.register button,
+  .login-container.register .register-link {
+    grid-column: span 1;
+  }
+}

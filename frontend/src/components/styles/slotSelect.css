@@ -1,0 +1,136 @@
+/* ================= MODAL BACKDROP ================= */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ================= MODAL CARD ================= */
+.calendar-modal {
+  background: #fff;
+  width: 520px;
+  max-width: 95%;
+  padding: 20px 24px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 0.25s ease;
+}
+
+.calendar-modal h3 {
+  text-align: center;
+  margin-bottom: 12px;
+  color: #1e293b;
+}
+
+/* ================= FORM ELEMENTS ================= */
+.calendar-modal label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+}
+
+.calendar-modal select,
+.calendar-modal input[type="time"] {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+  outline: none;
+}
+
+.calendar-modal select:focus,
+.calendar-modal input:focus {
+  border-color: #2563eb;
+}
+
+/* ================= TIME ROW ================= */
+.time-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.time-row div {
+  flex: 1;
+}
+
+/* ================= BUTTONS ================= */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #111827;
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* ================= FULLCALENDAR OVERRIDES ================= */
+.fc {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.fc-daygrid-day {
+  cursor: pointer;
+}
+
+.fc-daygrid-day:hover {
+  background: #eff6ff;
+}
+
+.fc-toolbar-title {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.fc-daygrid-day-number {
+  font-weight: 600;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

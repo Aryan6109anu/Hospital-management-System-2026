@@ -1,0 +1,72 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;          /* ✅ scrollbar always reserved */
+  scrollbar-gutter: stable;    /* ✅ modern browsers */
+}
+
+:root {
+  --navbar-height: 60px;       /* ✅ navbar height lock */
+}
+
+body {
+  margin: 0;
+  padding-top: var(--navbar-height);   /* ✅ fixed navbar compensation */
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+/* ===== COMMON LAYOUT ===== */
+.page {
+  padding: 20px;
+  background: #f4f7fb;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.padding {
+  padding: 20px;
+}
+
+/* ===== TABLE UI ===== */
+.table-ui {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: #fff;
+}
+
+.table-ui th {
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+}
+
+.table-ui td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.react-datepicker {
+  z-index: 9999 !important;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
+.react-datepicker__day {
+  color: black !important;
+  visibility: visible !important;
+}
+.react-datepicker__day--disabled {
+  color: #ccc !important;
+  visibility: visible !important;
+}
+

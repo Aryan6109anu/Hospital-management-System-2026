@@ -1,0 +1,160 @@
+/* =======================
+   CONTACT PAGE CONTAINER
+======================= */
+.contact-container {
+  padding-top: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  min-height: calc(100vh - 60px);
+  animation: fadeSlideDown 0.8s ease forwards;
+}
+
+/* =======================
+   TITLES
+======================= */
+.contact-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: #475569;
+  margin-bottom: 40px;
+}
+
+/* =======================
+   MAIN BOX
+======================= */
+.contact-box {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+  /* 👇 DOCTOR PAGE STYLE ANIMATION */
+  animation: slideFromTop 0.9s ease forwards;
+}
+
+/* =======================
+   LEFT INFO PANEL
+======================= */
+.contact-info {
+  width: 40%;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 35px;
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.contact-info p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =======================
+   RIGHT FORM
+======================= */
+.contact-form {
+  width: 60%;
+  padding: 35px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* =======================
+   BUTTON
+======================= */
+.contact-form button {
+  width: 100%;
+  padding: 13px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+/* =======================
+   MOBILE RESPONSIVE
+======================= */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 90px 20px 30px;
+  }
+
+  .contact-box {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+}
+
+/* =======================
+   ANIMATIONS
+======================= */
+
+/* Doctor page jaisa upar se niche */
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page smooth entry */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

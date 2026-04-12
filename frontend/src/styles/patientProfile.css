@@ -1,0 +1,57 @@
+/* ===== EDIT BUTTON ONLY ===== */
+.edit-btn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  border: none;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(79,70,229,0.35);
+}
+
+/* ===== INPUT + PLACEHOLDER ONLY ===== */
+.profile-field input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1.5px solid #dbe0ea;
+  font-size: 0.9rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.profile-field input::placeholder {
+  color: #aaa;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+.profile-field input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+}
+/* ===== SAVE BUTTON ONLY ===== */
+.save-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(34,197,94,0.35);
+}
+
+.save-btn:active {
+  transform: scale(0.97);
+}

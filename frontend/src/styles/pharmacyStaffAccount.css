@@ -1,0 +1,88 @@
+/* ================= PHARMACY DASHBOARD ================= */
+
+.pharmacy-btn{
+  background:linear-gradient(135deg,#9333ea,#a855f7);
+  color:white;
+}
+
+.pharmacy-btn:hover{
+  background:linear-gradient(135deg,#7e22ce,#9333ea);
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.action-row{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.action-btn{
+  border:none;
+  padding:12px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.patient-btn{
+  background:linear-gradient(135deg,#059669,#10b981);
+  color:white;
+}
+
+.patient-btn:hover{
+  background:linear-gradient(135deg,#047857,#059669);
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.profile-header{
+  border-bottom:1px solid #eee;
+  margin-bottom:15px;
+  padding-bottom:10px;
+}
+
+.profile-body{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.profile-field label{
+  font-size:13px;
+  color:#64748b;
+}
+
+.profile-field span{
+  display:block;
+  font-weight:600;
+  margin-top:3px;
+}
+
+
+/* ================= MEDICINE EDIT BUTTON ================= */
+
+.btn-primary{
+  border:none;
+  background:#6366f1;
+  color:white;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.btn-primary:hover{
+  background:#4f46e5;
+}

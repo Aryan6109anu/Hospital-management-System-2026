@@ -1,0 +1,140 @@
+/* ======================================= */
+/* ============ PRINT SLIP ============== */
+/* ======================================= */
+
+.print-area {
+  position: absolute;
+  left: 50%;
+  top: 10mm;
+  transform: translateX(-50%);
+  width: 210mm;       /* 21cm width */
+  max-width: 98%;     /* Screen par cut hone se bachayega */
+  min-height: auto;   /* height adjusts based on content */
+  padding: 10px;      /* Border clipping ko rokne ke liye padding */
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    linear-gradient(rgba(245,250,255,0.85), rgba(245,250,255,0.85)),
+    url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= HEADER ================= */
+.slip-header {
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: 2px solid #3b82f6;
+  margin-bottom: 10px;
+}
+
+.slip-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1e40af;
+  margin: 0;
+}
+
+/* ================= FIELDS BORDER ================= */
+.slip-content {
+  box-sizing: border-box; /* YE IMPORTANT HAI LEFT BORDER KE LIYE */
+  width: 100%;            /* Container ke andar set karne ke liye */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px;
+  position: relative;
+  background: rgba(255,255,255,0.95);
+  border: 2px dashed #3b82f6; /* Short-hand syntax use kiya hai */
+  border-radius: 4px;
+}
+
+/* Scissor icon at the bottom center */
+.slip-content::after {
+  content: "✂";
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: #3b82f6;
+  background: white;
+  padding: 0 6px;
+}
+
+/* ================= COLUMNS ================= */
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 30%; /* up to 3 columns */
+  gap: 6px;
+}
+
+/* Row within column */
+.row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #93c5fd;
+  padding: 4px 0;
+}
+
+.label {
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.value {
+  font-weight: 600;
+  color: #0f172a;
+  text-align: right;
+}
+
+/* ================= PRINT ONLY ================= */
+@media print {
+  /* Browser ke default margins (Date, URL etc.) ko hatane ke liye */
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden; /* Extra space ko cut karne ke liye */
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Main Print Container */
+  .print-area {
+    visibility: visible !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto; /* Center align */
+    transform: none; /* Transform se kabhi kabhi layout shift hota hai print mein */
+    width: 100%; 
+    max-height: 100vh; /* Ek page se bada na ho */
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  .print-area * {
+    visibility: visible;
+  }
+
+  /* Taaki background image aur colors print mein dikhen */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

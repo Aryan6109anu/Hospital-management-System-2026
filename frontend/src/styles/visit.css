@@ -1,0 +1,360 @@
+/* ======================================= */
+/* ===== VISIT SYSTEM - REFINED STYLE ===== */
+/* ======================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.visit-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f4f7fa;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.visit-card {
+  width: 100%;
+  max-width: 1000px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+}
+
+/* Header Section */
+.visit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.hospital-brand h1 {
+  margin: 0;
+  color: #1e40af;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.visit-meta {
+  text-align: right;
+}
+
+.visit-meta p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.visit-meta b {
+  color: #1e293b;
+}
+
+/* Info Grid (Patient & Doctor Details) */
+.visit-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.visit-info-grid div {
+  font-size: 14px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+.visit-info-grid label {
+  font-weight: 600;
+  width: 120px;
+  color: #475569;
+}
+
+.visit-info-grid span {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Section Styling */
+.visit-section {
+  margin-top: 30px;
+}
+
+.visit-section h4 {
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e3a8a;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.visit-section h4::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* Textarea for Edit Mode */
+.visit-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  background: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.visit-textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Lab Test & Medicine Selectors */
+.labtest-add {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.labtest-add select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 14px;
+  background-color: #fff;
+  color: #1e293b;
+}
+
+.labtest-add button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.labtest-add button:hover {
+  background: #1d4ed8;
+}
+
+/* ======================================= */
+/* === MEDICINE & LAB LIST ALIGNMENT ===== */
+/* ======================================= */
+
+.med-list-container {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.list-header {
+  display: flex;
+  background: #f1f5f9;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.list-header div {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.visit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.visit-list li, .bullet-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f8fafc;
+  transition: background 0.2s;
+}
+
+.visit-list li:hover {
+  background: #fbfcfd;
+}
+
+/* Columns */
+.col-name { flex: 2; font-weight: 600; color: #1e293b; }
+.col-dose { flex: 1; text-align: center; }
+.col-days { flex: 1; text-align: center; }
+.col-action { width: 100px; text-align: right; }
+
+/* Inputs in List */
+.inline-input {
+  width: 80%;
+  padding: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.day-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.unit-txt { font-size: 12px; color: #94a3b8; }
+
+.saved-badge {
+  background: #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #475569;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.btn-remove-item {
+  background: transparent;
+  color: #ef4444;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-remove-item:hover {
+  background: #fef2f2;
+}
+
+/* ======================================= */
+/* === FOOTER ACTIONS (UPDATED COLORS) === */
+/* ======================================= */
+.visit-actions {
+  display: flex;
+  justify-content: space-between; /* Professional spacing: Ek Left, Ek Right */
+  gap: 15px;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 2px solid #f1f5f9;
+}
+
+.visit-actions button {
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* BACK BUTTON - Red (Pehla Button) */
+.visit-actions button:first-child {
+  background: #ef4444; /* Bright Red */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.visit-actions button:first-child:hover {
+  background: #dc2626;
+  transform: translateX(-4px); /* Back feel: thoda piche jayega */
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.35);
+}
+
+/* SAVE BUTTON - Blue */
+.btn-save {
+  background: #2563eb !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-save:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* PRINT BUTTON - Dark */
+.btn-print {
+  background: #0f172a !important;
+  color: white !important;
+}
+
+.btn-print:hover {
+  background: #1e293b !important;
+  transform: translateY(-2px);
+}
+
+/* EDIT VISIT BUTTON - Orange/Amber */
+.btn-edit {
+  background: #f59e0b !important; /* Professional Amber */
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+.btn-edit:hover {
+  background: #d97706 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .visit-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .labtest-add {
+    flex-direction: column;
+  }
+  .visit-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .visit-meta {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .visit-actions {
+    flex-direction: column;
+  }
+  .visit-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,143 @@
+/* BillingReceipt.css */
+
+/* 1. Main Background Styling */
+.receipt-wrapper {
+    background: #eef2f6; /* Thoda soft blue-grey background */
+    padding: 40px 20px;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* 2. Bill Card Styling (Jo screen par dikhta hai) */
+.opd-slip {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #dbeafe;
+    position: relative;
+}
+
+/* 3. Headers Styling */
+.slip-header h3 {
+    color: #1e293b;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.slip-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #1e293b;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* 4. Grid Info (Patient details) */
+.slip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.slip-grid div strong {
+    color: #64748b;
+    margin-right: 5px;
+}
+
+/* 5. Table Styling */
+.billing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.billing-table th {
+    background: #f1f5f9;
+    padding: 12px;
+    color: #475569;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.billing-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b;
+}
+
+/* 6. Pharmacy/Lab Specific Dashed Look */
+.pharmacy-border, .lab-border {
+    border: 2px dashed #cbd5e1 !important;
+}
+
+/* 7. Print Button (No-Print) */
+.print-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.print-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* ================= PRINT LOGIC (New Window Friendly) ================= */
+@media print {
+    .no-print { display: none !important; }
+
+    body {
+        background: white !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .opd-slip {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+        margin-bottom: 0 !important;
+        border-radius: 0 !important;
+        page-break-after: always; /* Har slip naye page par */
+    }
+
+    .slip-grid {
+        background: none !important;
+        border: 1px solid #eee;
+    }
+
+    .billing-table th {
+        background: #eee !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Taaki printer color ink bachaye par dikhe saaf */
+    .slip-badge {
+        background: black !important;
+        color: white !important;
+    }
+}
+
+.terms-list {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-top: 20px;
+}

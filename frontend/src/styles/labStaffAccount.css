@@ -1,0 +1,139 @@
+/* ================= LAB DASHBOARD BUTTON ================= */
+
+.lab-btn{
+  background: linear-gradient(135deg,#047857,#598879);
+  color:white;
+}
+
+.lab-btn:hover{
+  background: linear-gradient(135deg,#047857,#879e97);
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.action-row{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.action-btn{
+  border:none;
+  padding:12px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.patient-btn{
+  background:linear-gradient(135deg,#059669,#10b981);
+  color:white;
+}
+
+.patient-btn:hover{
+  background:linear-gradient(135deg,#047857,#059669);
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.profile-header{
+  border-bottom:1px solid #eee;
+  margin-bottom:15px;
+  padding-bottom:10px;
+}
+
+.profile-body{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.profile-field label{
+  font-size:13px;
+  color:#64748b;
+}
+
+.profile-field span{
+  display:block;
+  font-weight:600;
+  margin-top:3px;
+}
+
+
+/* ================= CARD ================= */
+
+.appointments-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+/* ================= TABLE HEADER ================= */
+
+.table-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.table-search{
+  padding:8px 12px;
+  border-radius:6px;
+  border:1px solid #ddd;
+}
+
+
+/* ================= LAB ORDER SEARCH ================= */
+
+.lab-search-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.lab-search-row .table-search{
+  min-width:120px;
+}
+
+.lab-search-row .action-btn{
+  padding:8px 14px;
+  font-size:13px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+  .table-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .lab-search-row{
+    width:100%;
+  }
+
+  .lab-search-row .table-search{
+    flex:1;
+  }
+
+}

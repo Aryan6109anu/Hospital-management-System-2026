@@ -1,0 +1,165 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+/* ===== ULTRA PREMIUM MODAL ===== */
+.modal-card {
+  background: #fefefe;
+  color: #1f2937;
+  border-radius: 20px;
+  padding: 18px 24px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  /* THICK GRADIENT BORDER */
+  border: 4px solid transparent;
+  background-image: 
+    linear-gradient(#fefefe, #fefefe),
+    linear-gradient(135deg, #2563eb, #22c55e, #f59e0b, #a855f7);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  /* STRONG DEPTH SHADOW */
+  box-shadow: 
+    0 25px 60px rgba(0,0,0,0.35),
+    0 10px 25px rgba(37,99,235,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+/* ================= HEADER ================= */
+.modal-card h3 {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* ================= FORM GRID ================= */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 20px;
+}
+
+/* ================= FORM GROUP ================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+/* ================= INPUTS ================= */
+.form-group input,
+.form-group select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  color: #1f2937;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59,130,246,0.3);
+  background: #fff;
+}
+
+/* ================= EMAIL WRAPPER ================= */
+.email-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.email-wrapper span {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* ================= BUTTONS ================= */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg,#2563eb,#22c55e);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.35);
+}
+
+.btn-secondary {
+  background: #ef4444;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

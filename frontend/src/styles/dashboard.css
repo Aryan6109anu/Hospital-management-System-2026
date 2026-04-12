@@ -1,0 +1,114 @@
+/* dashboard.css */
+
+/* Dashboard Header */
+.dashboard-title {
+  font-size: 2.5rem;
+  color: #eef128;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+  left: 30px;
+}
+
+.dashboard-role {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Card Style - Glassmorphism */
+.card {
+  background: rgba(230, 227, 227, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+ background: linear-gradient(60deg, #ffffff, #f9f9f9, #f1f1f1, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientAnim 10s ease infinite;
+  opacity: 0.2;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+@keyframes gradientAnim {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Card Text */
+.card h2 {
+  font-size: 2.2rem;
+  color: #fa316e;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #0b3a61;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Hover */
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Admin Card - Strong Gradient */
+.admin-card {
+  background: linear-gradient(135deg,#1e6f5c,#2dbfa4,#34c6b6);
+  color: white;
+  border: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+
+.admin-card h2,
+.admin-card p {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .card-grid{
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    gap: 20px;
+  }
+
+  .card h2{ font-size:1.8rem;}
+  .card p{ font-size:0.95rem;}
+}

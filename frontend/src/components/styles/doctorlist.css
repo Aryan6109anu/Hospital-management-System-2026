@@ -1,0 +1,129 @@
+.doctor-page{
+width:100%;
+min-height:100vh;
+padding:10px;
+padding:70px 10px 10px 10px;
+font-family:"Poppins",sans-serif;
+background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+display:flex;
+justify-content:center;
+align-items:flex-start; /* top se start hoga */
+}
+
+.doctor-container{
+width:100%;
+max-width:1800px;
+}
+
+.doctor-title{
+font-size:2.2rem;
+font-weight:800;
+text-align:center;
+margin-bottom:12px;
+text-transform:uppercase;
+background:linear-gradient(90deg,#7dd3fc,#38bdf8,#0ea5e9);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.doctor-card{
+width:100%;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(12px);
+border-radius:6px;
+padding:10px;
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.doctor-table-wrapper{
+width:100%;
+overflow-x:auto;
+}
+
+.data-table{
+width:100%;
+border-collapse:collapse;
+min-width:850px;
+color:#e5e7eb;
+}
+
+.data-table thead{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.data-table th{
+padding:11px;
+font-size:1rem;
+font-weight:700;
+text-transform:uppercase;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.data-table td{
+padding:10px;
+font-size:1rem;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.data-table tbody tr:nth-child(even){
+background:rgba(255,255,255,0.02);
+}
+
+/* HOVER EFFECT */
+.data-table tbody tr:hover{
+background:rgba(59,130,246,0.35);
+color:#000;
+}
+
+/* doctor name default */
+.doctor-name{
+font-weight:600;
+color:#f1f5f9;
+}
+
+/* hover pe doctor name bhi black */
+.data-table tbody tr:hover .doctor-name{
+color:#000;
+}
+
+.doctor-status{
+padding:5px 12px;
+border-radius:8px;
+font-size:.9rem;
+font-weight:700;
+background:linear-gradient(135deg,#22c55e,#16a34a);
+color:#fff;
+}
+
+.table-message{
+padding:14px;
+text-align:center;
+font-size:1rem;
+color:#cbd5f5;
+}
+
+@media(max-width:900px){
+
+.doctor-title{
+font-size:1.8rem;
+}
+
+.data-table{
+min-width:600px;
+}
+
+.data-table th{
+font-size:.9rem;
+padding:9px;
+}
+
+.data-table td{
+font-size:.9rem;
+padding:8px;
+}
+
+}
