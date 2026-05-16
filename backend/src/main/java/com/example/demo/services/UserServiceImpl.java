@@ -41,11 +41,9 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("Username already exists");
         }
 
-        String email = request.getUsername().toLowerCase() + emailConfig.getDomain();
-
         User user = new User();
         user.setUsername(request.getUsername());
-        user.setEmail(email);
+        user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(
                 request.getRole() == null
