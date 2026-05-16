@@ -35,7 +35,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password; // encoded password
 
-    @Pattern(regexp="^[A-Za-z0-9._%+-]+@wellspring\\.com$", message="Email must be @wellspring domain")
+    @Pattern(regexp="^[A-Za-z0-9._%+-]+@wellspring\\.[a-z]{2,6}$", message="Email must be @wellspring domain")
     private String email;
 
     @Enumerated(EnumType.STRING)
