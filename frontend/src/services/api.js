@@ -2,7 +2,7 @@ import axios from "axios";
 
 // ✅ Create axios instance
 const api = axios.create({
-  baseURL: "https://hospital-management-system-2026-6.onrender.com",
+  baseURL: "https://hospital-management-system-2026-6.onrender.com/api",
   timeout: 10000,
 });
 
