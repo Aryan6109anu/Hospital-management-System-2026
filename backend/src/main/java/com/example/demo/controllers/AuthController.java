@@ -16,7 +16,6 @@ import com.example.demo.services.UserService;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin("*")
 public class AuthController {
 
     private final UserService userService;
