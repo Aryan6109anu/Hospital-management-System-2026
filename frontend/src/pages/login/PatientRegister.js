@@ -71,7 +71,7 @@ export default function PatientRegister() {
 
     try {
       await axios.post(
-        "http://localhost:8080/api/patients/register",
+        "/api/patients/register",
         cleanedForm
       );
       showAlert("success", "✅ Registration successful! Please login.");

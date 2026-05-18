@@ -16,7 +16,7 @@ export default function DoctorList() {
 
   const fetchDoctors = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/doctors/available");
+      const res = await axios.get("/api/doctors/available");
       setDoctors(res.data);
     } catch (err) {
       showAlert("error", "Error loading doctors");

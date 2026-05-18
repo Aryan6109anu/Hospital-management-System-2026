@@ -33,7 +33,7 @@ export default function PatientLogin() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        "/api/auth/login",
         form
       );
 

@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "react-datepicker/dist/react-datepicker.css";
 
+import axios from 'axios';
+
+// Apne Render backend ka URL yahan set kar do
+axios.defaults.baseURL = 'https://hospital-management-system-2026-6.onrender.com';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -7,12 +7,12 @@ export default function LabBilling(){
   const [bill, setBill] = useState(null);
 
   const fetchBill = () => {
-    axios.get(`http://localhost:8080/cashier/lab-order/${orderId}`)
+    axios.get(`/cashier/lab-order/${orderId}`)
       .then(res => setBill(res.data));
   };
 
   const pay = () => {
-    axios.post(`http://localhost:8080/cashier/lab-order/${orderId}/pay`)
+    axios.post(`/cashier/lab-order/${orderId}/pay`)
       .then(() => alert("Paid Successfully"));
   };
 
