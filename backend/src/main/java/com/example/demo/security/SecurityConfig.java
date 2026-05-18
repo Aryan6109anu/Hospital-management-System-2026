@@ -62,10 +62,7 @@ public class SecurityConfig {
 
                 .requestMatchers("/api/billing-staff/**")
                 .hasAnyRole("ADMIN","BILLING")
-                
-             // ✅ Allow all OPTIONS requests for CORS preflight
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                             
+                                      
                 // All other requests require authentication
                 .anyRequest().authenticated()
             );
@@ -80,20 +77,22 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // 🚨 Bas is niche waali line mein apna Vercel link jodna hai, dhyan se dekho:
         configuration.setAllowedOrigins(List.of(
             "http://localhost:3000", 
-            "https://hospital-management-system-2026-m4ws6s67p.vercel.app" // <-- Yahan apna asli Vercel link paste kar do
+            "https://hospital-management-system-2026-m4ws6s67p.vercel.app"
         ));
         
         configuration.setAllowedMethods(List.of("GET","POST","PUT","PATCH","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
+        
+        // 🚨 Ye line jodna zaroori hai jab allowCredentials true ho
+        configuration.setExposedHeaders(List.of("Authorization", "Content-Type")); 
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
+    } 
 
     @Bean
     public PasswordEncoder passwordEncoder() {
