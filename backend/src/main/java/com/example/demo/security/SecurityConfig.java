@@ -83,7 +83,7 @@ public class SecurityConfig {
         // 🚨 Bas is niche waali line mein apna Vercel link jodna hai, dhyan se dekho:
         configuration.setAllowedOrigins(List.of(
             "http://localhost:3000", 
-            "https://tumhara-hospital-app.vercel.app" // <-- Yahan apna asli Vercel link paste kar do
+            "https://hospital-management-system-2026.vercel.app" // <-- Yahan apna asli Vercel link paste kar do
         ));
         
         configuration.setAllowedMethods(List.of("GET","POST","PUT","PATCH","DELETE","OPTIONS"));
