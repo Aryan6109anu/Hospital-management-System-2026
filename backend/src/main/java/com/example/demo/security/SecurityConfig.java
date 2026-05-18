@@ -77,22 +77,26 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
+        // 1. Jo link KABHI NAHI BADLEGA (Main Link) use yahan dalo:
         configuration.setAllowedOrigins(List.of(
-            "http://localhost:3000", 
-            "https://hospital-management-system-2026-m4ws6s67p.vercel.app"
+            "http://localhost:3000",                                 // Local testing ke liye
+            "https://hospital-management-system-2026.vercel.app"     // <-- Yeh tumhara hamesha fix rehne wala main link hai
+        ));
+        
+        // 2. Jo links HAR BAAR BADALTE HAIN, unke liye yeh pattern dalo (Yahan '*' ka matlab hai kuch bhi dynamic text):
+        configuration.setAllowedOriginPatterns(List.of(
+            "https://hospital-management-system-2026-*.vercel.app"  // <-- Is '*' ki wajah se har naya link apne aap allow ho jayega!
         ));
         
         configuration.setAllowedMethods(List.of("GET","POST","PUT","PATCH","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
-        
-        // 🚨 Ye line jodna zaroori hai jab allowCredentials true ho
-        configuration.setExposedHeaders(List.of("Authorization", "Content-Type")); 
+        configuration.setExposedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    } 
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
