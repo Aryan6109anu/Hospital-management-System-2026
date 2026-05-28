@@ -12,7 +12,6 @@ import com.example.demo.services.ContactService;
 
 @RestController
 @RequestMapping("/api/contact")
-@CrossOrigin
 public class ContactController {
 
     @Autowired

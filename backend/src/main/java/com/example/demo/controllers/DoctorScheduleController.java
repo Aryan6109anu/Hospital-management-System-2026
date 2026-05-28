@@ -15,7 +15,6 @@ import com.example.demo.services.DoctorScheduleService;
 
 @RestController
 @RequestMapping("/api/doctor-schedules")
-@CrossOrigin("*")
 public class DoctorScheduleController {
 
     private final DoctorScheduleService doctorScheduleService;

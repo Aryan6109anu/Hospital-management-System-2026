@@ -14,7 +14,6 @@ import com.example.demo.services.AppointmentService;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin("*")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;

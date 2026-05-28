@@ -17,7 +17,6 @@ import com.example.demo.services.BillingService;
 
 @RestController
 @RequestMapping("/api/billing")
-@CrossOrigin("*")  
 public class BillingController {
 
     @Autowired private BillingService billingService;

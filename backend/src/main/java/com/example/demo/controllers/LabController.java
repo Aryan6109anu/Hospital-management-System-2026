@@ -15,7 +15,6 @@ import com.example.demo.services.LabTestService;
 
 @RestController
 @RequestMapping("/api/lab")
-@CrossOrigin("*")
 public class LabController {
 
     private final LabDepartmentService departmentService;

@@ -9,7 +9,6 @@ import com.example.demo.services.DoctorUnavailableService;
 
 @RestController
 @RequestMapping("/api/doctor-unavailable")
-@CrossOrigin("*")
 public class DoctorUnavailableController {
 
     private final DoctorUnavailableService doctorUnavailableService;

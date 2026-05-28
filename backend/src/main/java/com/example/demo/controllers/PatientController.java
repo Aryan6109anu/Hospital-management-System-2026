@@ -14,7 +14,6 @@ import com.example.demo.services.PatientService;
 
 @RestController
 @RequestMapping("/api/patients")
-@CrossOrigin("*")
 public class PatientController {
 
     private final PatientService patientService;
