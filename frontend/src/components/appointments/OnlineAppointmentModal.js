@@ -14,7 +14,7 @@ import  {showAlert} from "../common/Alert.js";
 import api from "../../services/api";
 /* ================== SERVICES (API CALLS) ================== */
 import { createAppointment } from "../../services/appointmentService";
-import { getAllDoctors, getAvailableDoctors } from "../../services/doctorService";
+import { getAllDoctors} from "../../services/doctorService";
 import {
   checkDoctorAvailability,
   getAvailableSlots
@@ -45,7 +45,7 @@ export default function OnlineAppointmentModal() {
   });
 
   /* ================== DERIVED ================== */
-  const departments = [...new Set(doctors.map(d => d.department))];
+  const departments = [...new Set(doctors.map(d => d.department))].filter(Boolean); // <-- .filter(Boolean) add kiya
 
   /* =========================================================
      INITIAL LOAD
@@ -66,10 +66,7 @@ export default function OnlineAppointmentModal() {
      ========================================================= */
   const loadDoctors = async (currentRole) => {
     try {
-      const res =
-        currentRole === "ROLE_ADMIN"
-          ? await getAllDoctors()
-          : await getAvailableDoctors();
+      const res = await getAllDoctors();
 
       setDoctors(res.data || []);
     } catch (err) {
@@ -338,7 +335,7 @@ return (
           >
             <option value="">Select Doctor</option>
             {doctors
-              .filter(d => d.department === form.department && d.available)
+              .filter(d => d.department === form.department )
               .map(d => (
                 <option key={d.id} value={d.id}>
                   {d.name} ({d.specialization})
@@ -351,7 +348,7 @@ return (
           <label className="oa-label">Appointment Date</label>
                               <DatePicker
                                selected={form.appointmentDate}
-                               includeDates={availableDates}
+                               includeDates={availableDates.length > 0 ? availableDates : undefined}
                                onChange={date => {
                               setForm(prev => ({ ...prev, appointmentDate: date, slotStartTime: "" }));
                               if (form.doctorId && date) {
