@@ -20,13 +20,13 @@ public class Appointment {
     private Long id;
 
     // Patient
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patient_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "appointments"})
     private Patient patient;
 
     // Doctor
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doctor_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "appointments", "schedule"})
     private Doctor doctor;
