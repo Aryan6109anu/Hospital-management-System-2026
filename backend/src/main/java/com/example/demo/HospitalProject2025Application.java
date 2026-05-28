@@ -3,9 +3,11 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cache.annotation.EnableCaching;
 
 @EnableConfigurationProperties
 @SpringBootApplication
+@EnableCaching // <-- Bas ye ek line yahan daalni hai
 public class HospitalProject2025Application {
 
 	public static void main(String[] args) {

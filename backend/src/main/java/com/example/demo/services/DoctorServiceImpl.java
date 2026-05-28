@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -74,6 +75,7 @@ public class DoctorServiceImpl implements DoctorService {
 
     // ================= Get all doctors =================
     @Override
+    @Cacheable(value = "doctors")
     public List<DoctorResponseDto> getAllDoctors() {
         return doctorRepo.findAll()
                 .stream()
