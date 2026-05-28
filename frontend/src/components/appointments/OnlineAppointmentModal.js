@@ -45,7 +45,7 @@ export default function OnlineAppointmentModal() {
   });
 
   /* ================== DERIVED ================== */
-  const departments = [...new Set(doctors.map(d => d.department))].filter(Boolean); // <-- .filter(Boolean) add kiya
+  const departments = [...new Set(doctors.map(d => d.department))].filter(Boolean); 
 
   /* =========================================================
      INITIAL LOAD
@@ -54,7 +54,7 @@ export default function OnlineAppointmentModal() {
     const storedRole = localStorage.getItem("role");
     setRole(storedRole);
 
-    loadDoctors(storedRole);
+    loadDoctors();
 
     if (storedRole === "ROLE_PATIENT") {
       loadPatientInfo();
@@ -64,10 +64,9 @@ export default function OnlineAppointmentModal() {
   /* =========================================================
      LOAD DOCTORS
      ========================================================= */
-  const loadDoctors = async (currentRole) => {
+  const loadDoctors = async () => {
     try {
       const res = await getAllDoctors();
-
       setDoctors(res.data || []);
     } catch (err) {
       console.error(err);
@@ -107,7 +106,7 @@ export default function OnlineAppointmentModal() {
     }
   };
 
-/* =========================================================
+  /* =========================================================
      CHECK AVAILABILITY + LOAD SLOTS
      ========================================================= */
   const checkAvailabilityAndLoadSlots = async (doctorId, date) => {
@@ -212,245 +211,244 @@ export default function OnlineAppointmentModal() {
   /* =========================================================
      UI JSX
      ========================================================= */
-return (
-  <div className="oa-overlay">
-    <div className="oa-card">
+  return (
+    <div className="oa-overlay">
+      <div className="oa-card">
 
-      {/* ===== TITLE ===== */}
-      <h2 className="oa-title">
-        {role === "ROLE_ADMIN"
-          ? "Walk-in Appointment"
-          : "Book Online Appointment"}
-      </h2>
+        {/* ===== TITLE ===== */}
+        <h2 className="oa-title">
+          {role === "ROLE_ADMIN"
+            ? "Walk-in Appointment"
+            : "Book Online Appointment"}
+        </h2>
 
-      {/* ===== ERROR ===== */}
-      {availabilityError && (
-        <div className="oa-error">{availabilityError}</div>
-      )}
+        {/* ===== ERROR ===== */}
+        {availabilityError && (
+          <div className="oa-error">{availabilityError}</div>
+        )}
 
-      {/* ===== PATIENT INFO ===== */}
-      {role === "ROLE_PATIENT" && (
-        <div className="oa-patient-grid">
-          <div className="oa-field">
-            <label className="oa-label">ID</label>
-            <input
-              className="oa-input oa-input-readonly"
-              value={patient.id || ""}
-              readOnly
-            />
-          </div>
-
-          <div className="oa-field">
-            <label className="oa-label">Name</label>
-            <input
-              className="oa-input oa-input-readonly"
-              value={patient.name || ""}
-              readOnly
-            />
-          </div>
-
-          <div className="oa-field">
-            <label className="oa-label">Age</label>
-            <input
-              className="oa-input oa-input-readonly"
-              value={patient.age || ""}
-              readOnly
-            />
-          </div>
-
-          <div className="oa-field">
-            <label className="oa-label">Gender</label>
-            <input
-              className="oa-input oa-input-readonly"
-              value={patient.gender || ""}
-              readOnly
-            />
-          </div>
-
-          <div className="oa-field">
-            <label className="oa-label">Mobile</label>
-            <input
-              className="oa-input oa-input-readonly"
-              value={patient.mobile || ""}
-              readOnly
-            />
-          </div>
-
-          <div className="oa-field">
-            <label className="oa-label">Address</label>
-            <input
-              className="oa-input oa-input-readonly"
-              value={patient.address || ""}
-              readOnly
-            />
-          </div>
-        </div>
-      )}
-
-      {/* ===== FORM ===== */}
-      <form className="oa-form-grid" onSubmit={handleSubmit}>
-
-        <div className="oa-field">
-          <label className="oa-label">Disease</label>
-          <input
-            className="oa-input"
-            value={form.disease}
-            onChange={e =>
-              setForm(prev => ({ ...prev, disease: e.target.value }))
-            }
-          />
-        </div>
-
-        <div className="oa-field">
-          <label className="oa-label">Department</label>
-          <select
-            className="oa-select"
-            value={form.department}
-            onChange={e =>
-              setForm(prev => ({
-                ...prev,
-                department: e.target.value,
-                doctorId: "",
-                appointmentDate: null,
-                slotStartTime: ""
-              }))
-            }
-          >
-            <option value="">Select Department</option>
-            {departments.map(dep => (
-              <option key={dep} value={dep}>
-                {dep.replaceAll("_", " ")}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="oa-field">
-          <label className="oa-label">Doctor</label>
-          <select
-            className="oa-select"
-            value={form.doctorId}
-            onChange={handleDoctorChange}
-            disabled={!form.department}
-          >
-            <option value="">Select Doctor</option>
-            {doctors
-              .filter(d => d.department === form.department )
-              .map(d => (
-                <option key={d.id} value={d.id}>
-                  {d.name} ({d.specialization})
-                </option>
-              ))}
-          </select>
-        </div>
-
-        <div className="oa-field">
-          <label className="oa-label">Appointment Date</label>
-                              <DatePicker
-                               selected={form.appointmentDate}
-                               includeDates={availableDates.length > 0 ? availableDates : undefined}
-                               onChange={date => {
-                              setForm(prev => ({ ...prev, appointmentDate: date, slotStartTime: "" }));
-                              if (form.doctorId && date) {
-                               checkAvailabilityAndLoadSlots(form.doctorId, date);
-                             }
-                           }} 
-                             placeholderText="Select appointment date"
-                              dateFormat="yyyy-MM-dd"
-                              className="date-picker"
-                              withPortal
-                          />
-
-        </div>
-
-        <div className="oa-field oa-slot-field">
-          <label className="oa-label">Time Slot</label>
-          <button
-                            type="button"
-                            className={`oa-slot-btn ${
-                            form.department && form.doctorId && form.appointmentDate
-                          ? "ready"
-                              : ""
-                            } ${form.slotStartTime ? "slot-selected-btn" : ""}`}
-                             disabled={!(form.department && form.doctorId && form.appointmentDate)}
-                             onClick={() => setShowSlots(true)}
-                             >
-                          {form.slotStartTime || "Select Slot"}
-                      </button>
-        </div>
-
-        {/* ===== ACTIONS ===== */}
-        <div className="oa-form-actions">
-          <button type="submit" className="oa-submit-btn">
-            Book Appointment
-          </button>
-
-          <button
-            type="button"
-            className="oa-cancel-btn"
-            onClick={handleClose}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-
-      {/* ===== SLOT POPUP ===== */}
-      {showSlots && (
-        <div className="slot-overlay">
-          <div className="slot-popup">
-
-            <h4 className="slot-title">Select Available Slot</h4>
-
-            {availabilityError && (
-              <p className="slot-message error">
-                {availabilityError}
-              </p>
-            )}
-
-            {slots.length === 0 && !availabilityError && (
-              <p className="slot-message">
-                No slots
-              </p>
-            )}
-
-            <div className="slot-grid">
-                           {slots.map((s, i) => { // Yahan naya function use karein
-                                 const cleanStart = formatTimeAMPM(s.startTime);
-                                 const cleanEnd = formatTimeAMPM(s.endTime);
-                return (
-                  <div
-                    key={i}
-                    className={`slot-box ${
-                      s.booked ? "slot-booked" : "slot-free"
-                    }`}
-                    onClick={() => {
-                      if (!s.booked) {
-                        setForm(prev => ({
-                          ...prev,
-                          slotStartTime: cleanStart
-                        }));
-                        setShowSlots(false);
-                      }
-                    }}
-                  >
-                    {cleanStart} - {cleanEnd}
-                  </div>
-                );
-              })}
+        {/* ===== PATIENT INFO ===== */}
+        {role === "ROLE_PATIENT" && (
+          <div className="oa-patient-grid">
+            <div className="oa-field">
+              <label className="oa-label">ID</label>
+              <input
+                className="oa-input oa-input-readonly"
+                value={patient.id || ""}
+                readOnly
+              />
             </div>
 
-            <button
-              className="btn-close"
-              onClick={() => setShowSlots(false)}
+            <div className="oa-field">
+              <label className="oa-label">Name</label>
+              <input
+                className="oa-input oa-input-readonly"
+                value={patient.name || ""}
+                readOnly
+              />
+            </div>
+
+            <div className="oa-field">
+              <label className="oa-label">Age</label>
+              <input
+                className="oa-input oa-input-readonly"
+                value={patient.age || ""}
+                readOnly
+              />
+            </div>
+
+            <div className="oa-field">
+              <label className="oa-label">Gender</label>
+              <input
+                className="oa-input oa-input-readonly"
+                value={patient.gender || ""}
+                readOnly
+              />
+            </div>
+
+            <div className="oa-field">
+              <label className="oa-label">Mobile</label>
+              <input
+                className="oa-input oa-input-readonly"
+                value={patient.mobile || ""}
+                readOnly
+              />
+            </div>
+
+            <div className="oa-field">
+              <label className="oa-label">Address</label>
+              <input
+                className="oa-input oa-input-readonly"
+                value={patient.address || ""}
+                readOnly
+              />
+            </div>
+          </div>
+        )}
+
+        {/* ===== FORM ===== */}
+        <form className="oa-form-grid" onSubmit={handleSubmit}>
+
+          <div className="oa-field">
+            <label className="oa-label">Disease</label>
+            <input
+              className="oa-input"
+              value={form.disease}
+              onChange={e =>
+                setForm(prev => ({ ...prev, disease: e.target.value }))
+              }
+            />
+          </div>
+
+          <div className="oa-field">
+            <label className="oa-label">Department</label>
+            <select
+              className="oa-select"
+              value={form.department}
+              onChange={e =>
+                setForm(prev => ({
+                  ...prev,
+                  department: e.target.value,
+                  doctorId: "",
+                  appointmentDate: null,
+                  slotStartTime: ""
+                }))
+              }
             >
-              Close
+              <option value="">Select Department</option>
+              {departments.map(dep => (
+                <option key={dep} value={dep}>
+                  {dep.replaceAll("_", " ")}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="oa-field">
+            <label className="oa-label">Doctor</label>
+            <select
+              className="oa-select"
+              value={form.doctorId}
+              onChange={handleDoctorChange}
+              disabled={!form.department}
+            >
+              <option value="">Select Doctor</option>
+              {doctors
+                .filter(d => d.department === form.department )
+                .map(d => (
+                  <option key={d.id} value={d.id}>
+                    {d.name} ({d.specialization})
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          <div className="oa-field">
+            <label className="oa-label">Appointment Date</label>
+            <DatePicker
+              selected={form.appointmentDate}
+              includeDates={availableDates.length > 0 ? availableDates : undefined}
+              onChange={date => {
+                setForm(prev => ({ ...prev, appointmentDate: date, slotStartTime: "" }));
+                if (form.doctorId && date) {
+                  checkAvailabilityAndLoadSlots(form.doctorId, date);
+                }
+              }} 
+              placeholderText="Select appointment date"
+              dateFormat="yyyy-MM-dd"
+              className="date-picker"
+              withPortal
+            />
+          </div>
+
+          <div className="oa-field oa-slot-field">
+            <label className="oa-label">Time Slot</label>
+            <button
+              type="button"
+              className={`oa-slot-btn ${
+                form.department && form.doctorId && form.appointmentDate ? "ready" : ""
+              } ${form.slotStartTime ? "slot-selected-btn" : ""}`}
+              disabled={!(form.department && form.doctorId && form.appointmentDate)}
+              onClick={() => setShowSlots(true)}
+            >
+              {form.slotStartTime || "Select Slot"}
+            </button>
+          </div>
+
+          {/* ===== ACTIONS ===== */}
+          <div className="oa-form-actions">
+            <button type="submit" className="oa-submit-btn">
+              Book Appointment
             </button>
 
+            <button
+              type="button"
+              className="oa-cancel-btn"
+              onClick={handleClose}
+            >
+              Cancel
+            </button>
           </div>
-        </div>
-      )}
+        </form>
+
+        {/* ===== SLOT POPUP ===== */}
+        {showSlots && (
+          <div className="slot-overlay">
+            <div className="slot-popup">
+
+              <h4 className="slot-title">Select Available Slot</h4>
+
+              {availabilityError && (
+                <p className="slot-message error">
+                  {availabilityError}
+                </p>
+              )}
+
+              {slots.length === 0 && !availabilityError && (
+                <p className="slot-message">
+                  No slots
+                </p>
+              )}
+
+              <div className="slot-grid">
+                {slots.map((s, i) => { 
+                  const cleanStart = formatTimeAMPM(s.startTime);
+                  const cleanEnd = formatTimeAMPM(s.endTime);
+                  const isSelected = form.slotStartTime === cleanStart; // <-- Fixed logic here
+                  
+                  return (
+                    <div
+                      key={i}
+                      className={`slot-box ${
+                        s.booked ? "slot-booked" : "slot-free"
+                      } ${isSelected ? "slot-selected" : ""}`} // <-- Dynamic active class added
+                      onClick={() => {
+                        if (!s.booked) {
+                          setForm(prev => ({
+                            ...prev,
+                            slotStartTime: cleanStart
+                          }));
+                          setShowSlots(false);
+                        }
+                      }}
+                    >
+                      {cleanStart} - {cleanEnd}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <button
+                className="btn-close"
+                onClick={() => setShowSlots(false)}
+              >
+                Close
+              </button>
+
+            </div>
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
 }
